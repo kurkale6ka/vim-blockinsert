@@ -43,7 +43,7 @@ current paragraph.
 
 <h3>1.4 Act on both ends</h3>
 
-`[count] \[]` will use both `\i` and `\a`: (`2\[] Left text:*, Right text:**` used)
+`[count] \[]` will use both `\i` and `\a`: (`2\[]` Left text:`*`, Right text:`**` used)
 
         Note: the same `[count]` will be applied to both operations
 
@@ -122,7 +122,7 @@ them enabled:
 
     :let g:blockinsert_commands = 1
 
-@Todo make the commands accept a count as their first argument
+_@Todo:_ make the commands accept a count as their first argument
 
 <h2>4. Custom mappings</h2>
 
