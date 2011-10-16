@@ -45,7 +45,7 @@ current paragraph.
 
 `[count] \[]` will use both `\i` and `\a`: (`2\[]` Left text:`*`, Right text:`**` used)
 
-        Note: the same `[count]` will be applied to both operations
+_Note:_ the same `[count]` will be applied to both operations
 
         **First line of code>>****
             **Another line of code>>****
