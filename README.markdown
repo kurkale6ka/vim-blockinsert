@@ -1,7 +1,7 @@
 Easy Insert/Append to a paragraph of text
 =========================================
 
-A plugin intended to make life simpler when inserting or appending characters
+A plugin intended to make life simpler when inserting or appending characters  
 to blocks of text
 
 <h2>1. Normal mode</h2>
@@ -16,7 +16,7 @@ current paragraph.
 
 <h3>1.1 Insert</h3>
 
-`[count] \i -` will transform the above into: (count 3 used)
+`[count] \i-` will transform the above into: (count 3 used)
 
         ---First line of code
             ---Another line of code
@@ -25,7 +25,7 @@ current paragraph.
 
 <h3>1.2 Append</h3>
 
-`[count] \a >` will transform the above into: (count 2 used)
+`[count] \a>` will transform the above into: (count 2 used)
 
         ---First line of code>>
             ---Another line of code>>
@@ -43,7 +43,7 @@ current paragraph.
 
 <h3>1.4 Act on both ends</h3>
 
-`[count] \[]` will use both `\i` and `\a`: (`2\[] * **` used)
+`[count] \[]` will use both `\i` and `\a`: (`2\[] Left text:*, Right text:**` used)
 
         Note: the same `[count]` will be applied to both operations
 
@@ -87,7 +87,7 @@ The only difference is that here the range is defined by the selected lines.
 There is one special case. When selecting text in visual block mode, the  
 boundaries of the text acted upon are defined by the limits of the visual area.
 
-_Example:_ (the <bar>s represent our selection)
+_Example:_ (the `<bar>`s represent our selection)
 
     Some text here                |stridx(    |       end of this line
     Some other text...            |strridx(   |       text after a function
@@ -122,7 +122,7 @@ them enabled:
 
     :let g:blockinsert_commands = 1
 
-*Todo make the commands accept a count as their first argument
+@Todo make the commands accept a count as their first argument
 
 <h2>4. Custom mappings</h2>
 

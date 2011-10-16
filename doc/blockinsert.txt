@@ -48,7 +48,7 @@ current paragraph.
 <
 1.1 Insert                                   *blockinsert-insert*
 
-[count] \i - will transform the above into: (count 3 used)
+[count] \i- will transform the above into: (count 3 used)
 >
         ---First line of code
             ---Another line of code
@@ -57,7 +57,7 @@ current paragraph.
 <
 1.2 Append                                   *blockinsert-append*
 
-[count] \a > will transform the above into: (count 2 used)
+[count] \a> will transform the above into: (count 2 used)
 >
         ---First line of code>>
             ---Another line of code>>
