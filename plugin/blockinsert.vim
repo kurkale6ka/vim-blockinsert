@@ -5,21 +5,21 @@
 " Latest version at:
 " https://github.com/kurkale6ka/vim-blockinsert
 "
-" todo: make the :commands accept a count as their first argument
+" 1. todo: Rewrite the code using a Block object where c1, c2, l1 and l2 would be
+"          properties and BlockDoIni() a method...
 "
-" todo: :Both, :QBoth -> how to give them an empty arg in input:
-"       :Both '' Second\ Argument
+" 2. todo: When hitting <esc> after 'Enter text:', it should abort, not delete
 "
-" todo: When hitting <esc> after 'Enter text:', it should abort, not delete
+" 3. todo: make the :commands accept a count as their first argument
+"
+" 4. todo: :Both, :QBoth -> how to give them an empty arg in input:
+"          :Both '' Second\ Argument
 
 if exists('g:loaded_blockinsert') || &compatible || v:version < 700
 
    if &compatible && &verbose
-
       echo "Blockinsert is not designed to work in compatible mode."
-
    elseif v:version < 700
-
       echo "Blockinsert needs Vim 7.0 or above to work correctly."
    endif
 
@@ -31,31 +31,6 @@ let g:loaded_blockinsert = 1
 let s:savecpo = &cpoptions
 set cpoptions&vim
 
-"function! s:Tab_spaces()
-
-"normal! h
-
-"let before_tab = virtcol('.')
-
-"call search('[^[:tab:]]', 'W', line('.'))
-
-"let after_tab = virtcol('.')
-
-"call search('[[:tab:]]\+', 'Wb', line('.'))
-
-"return after_tab - before_tab - 1
-
-"endfunction
-
-"while search('\t\+','W',line('.'))
-
-"let nb_spaces = s:Tab_spaces()
-"echo nb_spaces
-"sleep
-
-"execute "normal! x" . nb_spaces . "i \<esc>"
-"endwhile
-
 function! s:BlockDo (operation, col1, col2, row1, row2, text)
 
    if empty(a:col1) && a:operation =~ 'q' || '_delete_please' == a:text
@@ -63,7 +38,7 @@ function! s:BlockDo (operation, col1, col2, row1, row2, text)
       let go_start = '^'
       let go_end   = '$'
 
-      " I (insert) and A (append)
+   " I (insert) and A (append)
    elseif empty(a:col1) && a:operation !~ 'q'
 
       let go_start = ''
@@ -140,8 +115,6 @@ function! s:BlockDo (operation, col1, col2, row1, row2, text)
       for i in range(1, lastline)
 
          if a:col2 >= virtcol('$')
-
-            "let current_line = substitute(getline('.'), "\<tab>", '', 'g')
 
             let test_string = matchstr(getline('.'), '\%' . a:col1 . 'v.*$')
 
